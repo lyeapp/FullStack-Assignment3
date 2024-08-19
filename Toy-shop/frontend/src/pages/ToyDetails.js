@@ -5,14 +5,14 @@ const ToyDetails = ({ match }) => {
 
   useEffect(() => {
     fetch(`/api/toys/${match.params.id}`)
-      .then(response => response.json())
-      .then(data => setToy(data));
+      .then((response) => response.json())
+      .then((data) => setToy(data));
   }, [match.params.id]);
 
   if (!toy) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div className="toy-details">
       <h1>{toy.name}</h1>
       <p>{toy.description}</p>
       <p>${toy.price}</p>
@@ -22,4 +22,3 @@ const ToyDetails = ({ match }) => {
 };
 
 export default ToyDetails;
-
