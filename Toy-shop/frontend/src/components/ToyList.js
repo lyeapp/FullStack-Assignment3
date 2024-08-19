@@ -1,27 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import ToyItem from './ToyItem';
 
-const ToyList = () => {
-  const [toys, setToys] = useState([]);
-
-  useEffect(() => {
-    const fetchToys = async () => {
-      const res = await axios.get('/api/toys');
-      setToys(res.data);
-    };
-    fetchToys();
-  }, []);
-
+const ToyList = ({ toys }) => {
   return (
     <div>
-      <h1>Toy List</h1>
-      <ul>
-        {toys.map(toy => (
-          <li key={toy._id}>{toy.name} - ${toy.price}</li>
-        ))}
-      </ul>
+      {toys.map(toy => (
+        <ToyItem key={toy._id} toy={toy} />
+      ))}
     </div>
   );
 };
 
 export default ToyList;
+
