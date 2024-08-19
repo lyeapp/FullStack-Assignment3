@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const ToyItem = ({ toy }) => {
   return (
-    <div>
+    <div className="toy-item">
       <h2>{toy.name}</h2>
       <p>{toy.description}</p>
       <p>${toy.price}</p>
@@ -12,4 +13,6 @@ const ToyItem = ({ toy }) => {
   );
 };
 
+
 export default ToyItem;
+
